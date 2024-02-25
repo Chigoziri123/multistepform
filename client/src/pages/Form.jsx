@@ -3,6 +3,7 @@ import Signup from "../components/Signup"
 import Personalinfo from "../components/Personalinfo"
 import Moreinfo from "../components/Moreinfo"
 import logo from "../assets/pie-chart.png"
+import axios from 'axios'
 
 const Form = () => {
   const [page, setPage] = useState(0)
@@ -17,6 +18,11 @@ const Form = () => {
     course: '',
     phone: ''
   })
+
+  const RegisterUser = (e) => {
+    e.preventDefault(); 
+    axios.get('http://localhost:4000/test')
+  }
 
   const titles = ["User Info", "Personal Info", "More Info"]
 
@@ -56,6 +62,7 @@ const Form = () => {
               onClick={(e) => {
                 if (page === titles.length - 1) {
                   alert ('Form submitted')
+                  RegisterUser(e);
                   console.log(data)
                 } else {
                   setPage ((currPage) => currPage + 1)
