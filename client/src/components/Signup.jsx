@@ -16,9 +16,6 @@ function Signup({data, setData}) {
     setConfirmPasswordEye(!confirmPasswordEye)
   }
 
-
-
-
   return (
     <div className='space-y-6'>
 
@@ -47,9 +44,14 @@ function Signup({data, setData}) {
         <input 
         onChange={(e) => setData({...data, password: e.target.value})}
         value={data.password}
-        type='password' id='password' className='block h-14 w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 sm:text-sm'/>
+        type={passwordEye === false ? 'password' : 'text'}
+        id='password' 
+        className='block h-14 w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 sm:text-sm'/>
         <div className='text-2xl absolute top-10 right-5 cursor-pointer'>
-          <AiFillEyeInvisible />
+          {passwordEye === false ? (<AiFillEyeInvisible 
+          onClick={handlePassword}/>) : (
+            <AiFillEye onClick={handlePassword} />
+          )}
         </div>
       </div>
 
@@ -59,7 +61,15 @@ function Signup({data, setData}) {
         <input 
         onChange={(e) => setData({...data, confirmPassword: e.target.value})}
         value={data.confirmPassword}
-        type='password' id='cpassword' className='block h-14 w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 sm:text-sm'/>
+        type={confirmPasswordEye === false ? 'password' : 'text'}
+        id='cpassword' 
+        className='block h-14 w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 sm:text-sm'/>
+        <div className='text-2xl absolute top-10 right-5 cursor-pointer'>
+          {confirmPasswordEye === false ? (<AiFillEyeInvisible 
+          onClick={handleConfirmPassword}/>) : (
+            <AiFillEye onClick={handleConfirmPassword} />
+          )}
+        </div>
       </div>
     </div>
   )
