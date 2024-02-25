@@ -1,4 +1,4 @@
-import {AiFilEyeInvisible, AiFillEye} from 'react-icons/ai'
+import {AiFillEyeInvisible, AiFillEye} from 'react-icons/ai'
 import { useState } from 'react';
 
 function Signup({data, setData}) {
@@ -48,8 +48,8 @@ function Signup({data, setData}) {
         onChange={(e) => setData({...data, password: e.target.value})}
         value={data.password}
         type='password' id='password' className='block h-14 w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 sm:text-sm'/>
-        <div>
-          <AiFilEyeInvisible />
+        <div className='text-2xl absolute top-10 right-5 cursor-pointer'>
+          <AiFillEyeInvisible />
         </div>
       </div>
 
