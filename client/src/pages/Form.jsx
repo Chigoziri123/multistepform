@@ -31,12 +31,7 @@ const Form = () => {
   }
   
   return (
-    <div className="bg-gradient-to-r from-slate-100 to-red-600 w-full h-full min-h-full flex flex-col justify-center py-36 sm:px-6 lg:px-8 z-100 md:h-screen  ">
-       <div>
-        <div>
-           Progress Bar
-        </div>
-       </div>
+    <div className="bg-gradient-to-r from-slate-100 to-red-600 w-full h-full min-h-full flex flex-col justify-center py-36 sm:px-6 lg:px-8 z-100 md:h-screen">
 
        <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <img className="mx-auto h-24 w-auto" src={logo} alt="logo"/>
@@ -61,6 +56,7 @@ const Form = () => {
               onClick={(e) => {
                 if (page === titles.length - 1) {
                   alert ('Form submitted')
+                  console.log(data)
                 } else {
                   setPage ((currPage) => currPage + 1)
                 }
