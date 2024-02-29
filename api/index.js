@@ -1,5 +1,5 @@
 const express = require('express');
-const cors = require('cors')
+const cors = require('cors');
 const app = express();
 
 app.use(
@@ -9,8 +9,16 @@ app.use(
     })
 );
     
-app.get('/test', (req, res) => {
-    res.json('Test Works')
-})
+// Define a route for "/"
+app.get('/', (req, res) => {
+    res.send('Hello World!');
+});
 
-app.listen(4000)
+// Define your "/test" route
+app.get('/test', (req, res) => {
+    res.json('Test Works');
+});
+
+app.listen(4000, () => {
+    console.log('Server is running on port 4000');
+});
